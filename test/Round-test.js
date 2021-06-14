@@ -45,4 +45,12 @@ describe('Round', function() {
     expect(round.calculatePercentCorrect()).to.equal("66%")
   });
 
+  it('should be able to end a round with a report', function() {
+    const round = new Round(deck);
+    round.takeTurn(2);
+    round.takeTurn(0);
+    round.takeTurn(0);
+    expect(round.endRound()).to.equal(`** Round over! ** You answered ${round.calculatePercentCorrect()} of the questions correctly!`)
+  });
+
 });
