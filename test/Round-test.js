@@ -14,11 +14,12 @@ const deck = new Deck(cards);
 describe('Round', function() {
 
   it('should be an instance of Round', function() {
-    const round = new Round();
+    const round = new Round(deck);
     expect(round).to.be.an.instanceof(Round);
   });
 
   it('Should initialize with the first card in the deck', function() {
+    console.log(deck)
     const round = new Round(deck);
     expect(round.currentCard).to.equal(deck[0]);
   });
