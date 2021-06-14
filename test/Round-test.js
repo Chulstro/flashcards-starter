@@ -19,9 +19,21 @@ describe('Round', function() {
   });
 
   it('Should initialize with the first card in the deck', function() {
-    console.log(deck)
     const round = new Round(deck);
     expect(round.currentCard).to.equal(deck[0]);
+  });
+
+  it('should have a function that returns the currentCard', function() {
+    const round = new Round(deck);
+    expect(round.returnCurrentCard()).to.equal(deck[0]);
+  });
+
+  it('should be able to take a turn', function() {
+    const round = new Round(deck);
+    expect(round.turns).to.equal(0);
+    expect(round.takeTurn(2)).to.equal("Incorrect");
+    expect(round.incorrectGuesses.length).to.equal(1);
+    expect(round.incorrectGuesses[0]).to.equal(deck[0]);
   });
 
 });
